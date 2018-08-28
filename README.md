@@ -1,3 +1,4 @@
+
 本文为object_delection相关教程
 
 由于校园网网速较慢，代码可参考https://github.com/tensorflow/models/tree/master/research/object_detection
@@ -46,6 +47,9 @@
             --label_map_path=data/pascal_label_map.pbtxt \
             --data_dir=data/VOCdevkit --year=VOC2012 --set=val \
             --output_path=data/pascal_val.record
+
 得到data/pascal_train.record和data/pascal_val.record。
 
-如果需要用自己的数据，则参考create_pascal_tf_record.py编写处理数据生成TFRecord的脚本。可参考 https://github.com/tensorflow/models/blob/master/object_detection/g3doc/using_your_own_dataset.md
+如果需要用自己的数据，则参考create_pascal_tf_record.py编写处理数据生成TFRecord的脚本。可参考
+
+        https://github.com/tensorflow/models/blob/master/object_detection/g3doc/using_your_own_dataset.md
