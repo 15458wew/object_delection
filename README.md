@@ -1,4 +1,5 @@
 
+
 本文为object_delection相关教程
 
 由于校园网网速较慢，代码可参考https://github.com/tensorflow/models/tree/master/research/object_detection
@@ -36,6 +37,7 @@
         wget http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
         tar -xvf VOCtrainval_11-May-2012.tar
 生成TFRecord
+
         #From tensorflow/models/object_detection/VOC2012/
         cp ../../create_pascal_tf_record.py .
         cp ../../data/pascal_label_map.pbtxt data/
