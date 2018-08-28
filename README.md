@@ -61,7 +61,8 @@
 
 官方提供了不少预训练模型（ https://github.com/tensorflow/models/blob/master/object_detection/g3doc/detection_model_zoo.md ），这里以ssd_mobilenet_v1_coco以例。
 
-        #From tensorflow/models/object_detection/
+
+#From tensorflow/models/object_detection/
         mkdir checkpoints
         cd checkpoints
         wget http://download.tensorflow.org/models/object_detection/ssd_mobilenet_v1_coco_11_06_2017.tar.gz
@@ -79,10 +80,15 @@
         cp ../samples/configs/ssd_mobilenet_v1_pets.config ssd_mobilenet/ssd_mobilenet_v1.config
         
 并进行相应的修改：
+
 修改第9行为num_classes: 20。
+
 修改第158行为fine_tune_checkpoint: "../../checkpoints/ssd_mobilenet_v1_coco_11_06_2017/model.ckpt"
+
 修改第177行为input_path: "../data/pascal_train.record"
+
 修改第179行和193行为label_map_path: "../data/pascal_label_map.pbtxt"
+
 修改第191行为input_path: "../data/pascal_val.record"
 
 2.训练
