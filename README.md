@@ -53,6 +53,7 @@
 
 得到data/pascal_train.record和data/pascal_val.record。
 
+
 如果需要用自己的数据，则参考create_pascal_tf_record.py编写处理数据生成TFRecord的脚本。可参考
 
         https://github.com/tensorflow/models/blob/master/object_detection/g3doc/using_your_own_dataset.md
@@ -134,4 +135,24 @@
 
         #From tensorflow/models/object_detection/VOC2012/ssd_mobilenet/
         tensorboard --logdir .
+        
+测试
+
+1.导出模型
+
+训练完成后得到一些checkpoint文件在tensorflow/models/object_detection/VOC2012/ssd_mobilenet/train_logs/中，如：
+graph.pbtxt
+model.ckpt-200000.data-00000-of-00001
+model.ckpt-200000.info
+model.ckpt-200000.meta
+其中meta保存了graph和metadata，ckpt保存了网络的weights。
+而进行预测时只需模型和权重，不需要metadata，故可使用官方提供的脚本生成推导图。
+
+        #From tensorflow/models/object_detection/VOC2012/ssd_mobilenet/
+        mkdir -p output
+        CUDA_VISIBLE_DEVICES="1" python ../../export_inference_graph.py \
+            --input_type image_tensor \
+            --pipeline_config_path ssd_mobilenet_v1.config \
+            --trained_checkpoint_prefix train_logs/model.ckpt-200000 \
+            --output_directory output/
 
